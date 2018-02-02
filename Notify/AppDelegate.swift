@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 
               }
             }
+        self.setCategoryInNotification(action: "FirstAction", action2: "SecondAction", category: "MainCategory")
         return true
     }
 
@@ -36,8 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         let content = UNMutableNotificationContent()
         content.title = "testing"
         content.body = "it is my first notification demo application"
+        content.sound = UNNotificationSound.default()
+    }
+    func setCategoryInNotification(action:String,action2:String,category:String){
         
-        
+        let un_action1 = UNNotificationAction(identifier: "actionidentifier1", title: action, options: [])
+        let un_action2 = UNNotificationAction(identifier: "actionidentifier2", title: action2, options: [])
+        let cat = UNNotificationCategory(identifier: category, actions: [un_action1,un_action2], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([cat])
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -12,6 +12,7 @@
 		4DCEF13E1FFBC7F500DA6A85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCEF13C1FFBC7F500DA6A85 /* Main.storyboard */; };
 		4DCEF1401FFBC7F500DA6A85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCEF13F1FFBC7F500DA6A85 /* Assets.xcassets */; };
 		4DCEF1431FFBC7F500DA6A85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCEF1411FFBC7F500DA6A85 /* LaunchScreen.storyboard */; };
+		4DFF854D2025FBE7000311CD /* Butler.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DFF854C2025FBE7000311CD /* Butler.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4DCEF13F1FFBC7F500DA6A85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DCEF1421FFBC7F500DA6A85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DCEF1441FFBC7F500DA6A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFF854C2025FBE7000311CD /* Butler.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Butler.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				4DCEF1381FFBC7F500DA6A85 /* AppDelegate.swift */,
 				4DCEF13A1FFBC7F500DA6A85 /* ViewController.swift */,
+				4DFF854C2025FBE7000311CD /* Butler.jpg */,
 				4DCEF13C1FFBC7F500DA6A85 /* Main.storyboard */,
 				4DCEF13F1FFBC7F500DA6A85 /* Assets.xcassets */,
 				4DCEF1411FFBC7F500DA6A85 /* LaunchScreen.storyboard */,
@@ -126,6 +129,7 @@
 				4DCEF1431FFBC7F500DA6A85 /* LaunchScreen.storyboard in Resources */,
 				4DCEF1401FFBC7F500DA6A85 /* Assets.xcassets in Resources */,
 				4DCEF13E1FFBC7F500DA6A85 /* Main.storyboard in Resources */,
+				4DFF854D2025FBE7000311CD /* Butler.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

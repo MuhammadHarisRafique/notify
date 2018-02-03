@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
 
@@ -24,21 +24,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             if result == true{
                 
               print("user has authorized user notification")
+            UNUserNotificationCenter.current().delegate = self
                 
               }
             }
         self.setCategoryInNotification(action: "FirstAction", action2: "SecondAction", category: "MainCategory")
         return true
     }
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "actionidentifier1"{
+            
+            print("Identifier1")
+            
+        }
+        else if response.actionIdentifier == "actionidentifier2"{
+            
+             print("Identifier2")
+        }
+        completionHandler()
+    }
+    
     func trigerNotification(){
         
-        let triger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+        let triger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
         let content = UNMutableNotificationContent()
         content.title = "testing"
-        content.body = "it is my first notification demo application"
+        content.body = "it is my first notification please drag it down "
         content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "MainCategory"
+        guard let path = Bundle.main.path(forResource: "Butler", ofType: "jpg")else{return}
+        let url = URL(fileURLWithPath: path)
+        do{
+            let attachments = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+            content.attachments = [attachments]
+            
+        }catch let error{
+            
+            print(error.localizedDescription)
+        }
+        let request = UNNotificationRequest(identifier: "firstrequest", content: content, trigger: triger)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) { (error) in
+            
+            if let err = error{
+                
+              print(err.localizedDescription)
+                
+          }
+        }
+        
     }
+    
     func setCategoryInNotification(action:String,action2:String,category:String){
         
         let un_action1 = UNNotificationAction(identifier: "actionidentifier1", title: action, options: [])
@@ -48,25 +84,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+       
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+      
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
     }
 
 
